@@ -6,7 +6,6 @@
 -- Making quality tea and not rushing it with speed modules or beacons is desired, most steps can be quality moduled.
 -- ===================================================================
 
--- TODO: Balance leaf numbers and ratios
 -- TODO: Balance spoil times and plant growth time as well as stage spoil time ratios.
 
 data:extend({
@@ -33,6 +32,8 @@ data:extend({
             { type = "item", name = "withered-tea-leaves", amount = 200 },
         },
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,                                -- default false, set this to true for smelting recipes

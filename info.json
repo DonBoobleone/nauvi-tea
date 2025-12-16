@@ -1,10 +1,10 @@
 {
   "name": "nauvi-tea", 
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Nauvi-Tea",
   "author": "Don Boobleone",
   "factorio_version": "2.0",
   "dependencies": ["base >= 2.0.69", "space-age >= 2.0.69" ],
-  "spoilage_required": true,
-  "description": "Fresh brew of hot tea from the Shires of Nauvis\nA balanced alternative to Bioflux"
+  "description": "Fresh brew of hot tea from the Shires of Nauvis\nA balanced alternative to Bioflux",
+  "spoiling_required": true
 }

@@ -1,5 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.0
-Date: 12. ##. 2025
+Version: 1.0.1
+Date: 12. 16. 2025
+  Info:
+    - Added Spoiling required flag
+  Optimizations:
+    - Lowered withering recipe overflow limit to 1 stack.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 12. 16. 2025
   Major Features:
     - Initial release
