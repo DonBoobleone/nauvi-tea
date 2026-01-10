@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 01. 10. 2026
+  Info:
+    - Rebalanced recipes for quality moduled outputs.
+  Balancing:
+    - Increased spoil time of Tea leaves 8 -> 11 min
+    - Increased withering recipe time 180 -> 200 sec
+    - Increased fuel value to match spoilage 100 -> 250 kJ
+    - Increased crushing recipe time 2 -> 3 sec
+    - Increased oxidization recipe time 12 -> 17
+    - Increased oxidization recipe leaf input 36 -> 60
+    - Increased steaming recipe time 1 -> 1.7 sec
+    - Decreased drying recipe leaf input 8 -> 4
+    - Increased drying recipe time 1 -> 1.2 sec
+  Optimizations:
+    - Set inserter overload limits to 1.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 12. 16. 2025
   Info:

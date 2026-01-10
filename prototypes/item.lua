@@ -3,8 +3,8 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 local item_effects = require("__space-age__.prototypes.item-effects")
 
-local leaf_weight = 0.05 * kg
-local leaf_fuel_value = "100kJ"
+local leaf_weight = 0.05 * kg -- TODO increase to 0.5 to equal spoilage? -> 10 stack instead of 100
+local leaf_fuel_value = "250kJ"
 
 data:extend({
     {
@@ -23,12 +23,12 @@ data:extend({
         order = "t[tea]-a[leaves]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         default_import_location = "nauvis",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
-        spoil_ticks = 8 * minute,
+        spoil_ticks = 11 * minute,
         spoil_result = "withered-tea-leaves"
     },
     {
@@ -47,7 +47,7 @@ data:extend({
         order = "t[tea]-b[withered]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
@@ -69,7 +69,7 @@ data:extend({
         order = "t[tea]-c[crushed]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
@@ -92,7 +92,7 @@ data:extend({
         order = "t[tea]-d[oxidized]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
@@ -113,7 +113,7 @@ data:extend({
         order = "t[tea]-e[steamed]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
@@ -135,7 +135,7 @@ data:extend({
         order = "t[tea]-f[dried]",
         stack_size = 200,
         weight = leaf_weight,
-        fuel_value = "100kJ",
+        fuel_value = leaf_fuel_value,
         fuel_category = "chemical",
         inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
         pick_sound = space_age_item_sounds.agriculture_inventory_pickup,

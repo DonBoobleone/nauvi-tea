@@ -24,7 +24,7 @@ data:extend({
         localised_name = { "recipe-name.tea-withering" },
         category = "crafting",
         enabled = false,
-        energy_required = 180,
+        energy_required = 200,
         ingredients = {
             { type = "item", name = "tea-leaves", amount = 200 },
         },
@@ -37,8 +37,8 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,                                -- default false, set this to true for smelting recipes
-        result_is_always_fresh = true,                              -- set this to false for intermediates that spoil into spoilage instead of next stage
-        crafting_machine_tint = { r = 0.5, g = 1, b = 0.5, a = 1 }, -- tint for working_visualisations -- light green
+        result_is_always_fresh = true,
+        crafting_machine_tint = { r = 0.5, g = 1, b = 0.5, a = 1 }, -- light green
         subgroup = "tea-processing",
         order = "t[tea]-a[withering]"
     },
@@ -56,7 +56,7 @@ data:extend({
         category = "crafting",
         additional_categories = { "crushing" },
         enabled = false,
-        energy_required = 2,
+        energy_required = 3,
         ingredients = {
             { type = "item", name = "withered-tea-leaves", amount = 12 },
         },
@@ -64,6 +64,8 @@ data:extend({
             { type = "item", name = "crushed-tea-leaves", amount = 12 },
         },
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
@@ -87,17 +89,19 @@ data:extend({
         localised_name = { "recipe-name.tea-oxidization" },
         category = "chemistry",
         enabled = false,
-        energy_required = 12,
+        energy_required = 17,
         ingredients = {
-            { type = "item",  name = "crushed-tea-leaves", amount = 36 },
+            { type = "item",  name = "crushed-tea-leaves", amount = 60 },
             { type = "fluid", name = "thruster-oxidizer",  amount = 50 }
         },
         results = {
-            { type = "item",  name = "oxidized-tea-leaves", amount = 36 },
-            { type = "fluid", name = "thruster-oxidizer",   amount = 30 }
+            { type = "item",  name = "oxidized-tea-leaves", amount = 60 },
+            { type = "fluid", name = "thruster-oxidizer",   amount = 20 }
         },
         main_product = "oxidized-tea-leaves",
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
@@ -121,17 +125,19 @@ data:extend({
         localised_name = { "recipe-name.tea-steaming" },
         category = "chemistry",
         enabled = false,
-        energy_required = 1,
+        energy_required = 1.7,
         ingredients = {
             { type = "item",  name = "oxidized-tea-leaves", amount = 12 },
-            { type = "fluid", name = "steam",               amount = 100 }
+            { type = "fluid", name = "steam",               amount = 150 }
         },
         results = {
             { type = "item",  name = "steamed-tea-leaves", amount = 12 },
-            { type = "fluid", name = "steam",              amount = 80 }
+            { type = "fluid", name = "steam",              amount = 120 }
         },
         main_product = "steamed-tea-leaves",
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
@@ -153,10 +159,12 @@ data:extend({
         localised_name = { "recipe-name.tea-drying" },
         category = "smelting",
         enabled = false,
-        energy_required = 1,
-        ingredients = { { type = "item", name = "steamed-tea-leaves", amount = 8 } },
-        results = { { type = "item", name = "dried-flavourful-tea-leaves", amount = 8 } },
+        energy_required = 1.2,
+        ingredients = { { type = "item", name = "steamed-tea-leaves", amount = 4 } },
+        results = { { type = "item", name = "dried-flavourful-tea-leaves", amount = 4 } },
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = true,
@@ -188,6 +196,8 @@ data:extend({
             { type = "item", name = "tea-sack", amount = 1 },
         },
         allowed_module_categories = { "efficiency", "quality" },
+        allow_inserter_overload = false,
+        overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
