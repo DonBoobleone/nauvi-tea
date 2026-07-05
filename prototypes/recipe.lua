@@ -1,13 +1,3 @@
---prototypes/recipe.lua
-
--- ===================================================================
--- Every step of processing is faster then letting it spoil
--- Some steps result will spoil into spoilage not the next step of the chain
--- Making quality tea and not rushing it with speed modules or beacons is desired, most steps can be quality moduled.
--- ===================================================================
-
--- TODO: Balance spoil times and plant growth time as well as stage spoil time ratios.
-
 data:extend({
     -- ===================================================================
     -- 1. Withering (very slow, moisture reduction to 50-60%)
@@ -22,14 +12,14 @@ data:extend({
             { icon = "__base__/graphics/icons/signal/signal-hourglass.png", icon_size = 64, scale = 0.25, shift = { 4, -4 }, tint = { r = 1, g = 0.5, b = 0, a = 1 } },
         },
         localised_name = { "recipe-name.tea-withering" },
-        category = "crafting",
+        categories = { "crafting" },
         enabled = false,
         energy_required = 200,
         ingredients = {
             { type = "item", name = "tea-leaves", amount = 200 },
         },
         results = {
-            { type = "item", name = "withered-tea-leaves", amount = 200 },
+            { type = "item", name = "withered-tea-leaves", amount = 200, always_fresh = true },
         },
         allowed_module_categories = { "efficiency", "quality" },
         allow_inserter_overload = false,
@@ -37,7 +27,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,                                -- default false, set this to true for smelting recipes
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 0.5, g = 1, b = 0.5, a = 1 }, -- light green
         subgroup = "tea-processing",
         order = "t[tea]-a[withering]"
@@ -53,15 +42,14 @@ data:extend({
             { icon = "__core__/graphics/icons/tooltips/tooltip-category-debug.png", icon_size = 40, scale = 0.4, shift = { 4, -4 }, tint = { r = 0.6, g = 0.8, b = 0.6, a = 0.7 } },
         },
         localised_name = { "recipe-name.tea-crushing" },
-        category = "crafting",
-        additional_categories = { "crushing" },
+        categories = { "crafting", "crushing" },
         enabled = false,
         energy_required = 3,
         ingredients = {
             { type = "item", name = "withered-tea-leaves", amount = 12 },
         },
         results = {
-            { type = "item", name = "crushed-tea-leaves", amount = 12 },
+            { type = "item", name = "crushed-tea-leaves", amount = 12, always_fresh = true },
         },
         allowed_module_categories = { "efficiency", "quality" },
         allow_inserter_overload = false,
@@ -69,7 +57,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = true,
         crafting_machine_tint = {},
         subgroup = "tea-processing",
         order = "t[tea]-b[crushing]"
@@ -87,7 +74,7 @@ data:extend({
             { icon = "__space-age__/graphics/icons/fluid/thruster-oxidizer.png", icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-oxidization" },
-        category = "chemistry",
+        categories = { "chemistry" },
         enabled = false,
         energy_required = 17,
         ingredients = {
@@ -95,7 +82,7 @@ data:extend({
             { type = "fluid", name = "thruster-oxidizer",  amount = 50 }
         },
         results = {
-            { type = "item",  name = "oxidized-tea-leaves", amount = 60 },
+            { type = "item",  name = "oxidized-tea-leaves", amount = 60, always_fresh = true },
             { type = "fluid", name = "thruster-oxidizer",   amount = 20 }
         },
         main_product = "oxidized-tea-leaves",
@@ -105,7 +92,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 0.5, g = 0.8, b = 1, a = 1 }, -- light blue
         subgroup = "tea-processing",
         order = "t[tea]-c[oxidization]"
@@ -123,7 +109,7 @@ data:extend({
             { icon = "__base__/graphics/icons/fluid/steam.png",              icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-steaming" },
-        category = "chemistry",
+        categories = { "chemistry" },
         enabled = false,
         energy_required = 1.7,
         ingredients = {
@@ -131,7 +117,7 @@ data:extend({
             { type = "fluid", name = "steam",               amount = 150 }
         },
         results = {
-            { type = "item",  name = "steamed-tea-leaves", amount = 12 },
+            { type = "item",  name = "steamed-tea-leaves", amount = 12, always_fresh = true },
             { type = "fluid", name = "steam",              amount = 120 }
         },
         main_product = "steamed-tea-leaves",
@@ -141,7 +127,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 0.5, g = 1, b = 0.5, a = 1 }, -- light green
         subgroup = "tea-processing",
         order = "t[tea]-d[steaming]"
@@ -157,18 +142,17 @@ data:extend({
             { icon = "__core__/graphics/icons/tooltips/tooltip-category-heat.png", icon_size = 40, scale = 0.4, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-drying" },
-        category = "smelting",
+        categories = { "smelting" },
         enabled = false,
         energy_required = 1.2,
         ingredients = { { type = "item", name = "steamed-tea-leaves", amount = 4 } },
-        results = { { type = "item", name = "dried-flavourful-tea-leaves", amount = 4 } },
+        results = { { type = "item", name = "dried-flavourful-tea-leaves", amount = 4, always_fresh = true } },
         allowed_module_categories = { "efficiency", "quality" },
         allow_inserter_overload = false,
         overload_multiplier = 1,
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = true,
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 1, g = 0.8, b = 0.3, a = 1 }, -- darker warm yellow
         subgroup = "tea-processing",
         order = "t[tea]-e[drying]"
@@ -185,7 +169,7 @@ data:extend({
             { icon = "__nauvi-tea__/graphics/icons/dried-flavourful-tea-leaves.png", icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-bagging" },
-        category = "crafting",
+        categories = { "crafting" },
         enabled = false,
         energy_required = 4,
         ingredients = {
@@ -193,7 +177,7 @@ data:extend({
             { type = "item", name = "carbon-fiber",                amount = 1 }
         },
         results = {
-            { type = "item", name = "tea-sack", amount = 1 },
+            { type = "item", name = "tea-sack", amount = 1, always_fresh = true },
         },
         allowed_module_categories = { "efficiency", "quality" },
         allow_inserter_overload = false,
@@ -201,7 +185,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 0.5, g = 0.5, b = 0.5, a = 1 }, -- grey
         subgroup = "tea-processing",
         order = "t[tea]-f[bagging]"
@@ -217,7 +200,7 @@ data:extend({
             { icon = "__nauvi-tea__/graphics/icons/dried-flavourful-tea-leaves.png", icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-brewing-raw" },
-        category = "chemistry",
+        categories = { "chemistry" },
         enabled = false,
         energy_required = 5,
         ingredients = {
@@ -232,7 +215,6 @@ data:extend({
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = false,
         crafting_machine_tint = { r = 0.8, g = 1, b = 0.6, a = 1 }, -- greenish golden glow tint
         subgroup = "tea-processing",
         order = "t[tea]-g[brewing]"
@@ -245,7 +227,7 @@ data:extend({
             { icon = "__nauvi-tea__/graphics/icons/tea-sack.png",  icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.tea-brewing-bag" },
-        category = "chemistry",
+        categories = { "chemistry" },
         enabled = false,
         energy_required = 5,
         ingredients = {
@@ -254,15 +236,14 @@ data:extend({
             { type = "fluid", name = "steam",    amount = 500 }
         },
         results = {
-            { type = "item", name = "nauvi-tea",    amount = 1 },
-            { type = "item", name = "carbon-fiber", amount = 1, probability = 0.95 }
+            { type = "item", name = "nauvi-tea",    amount = 1, always_fresh = true },
+            { type = "item", name = "carbon-fiber", amount = 1, independent_probability = 0.95 }
         },
         main_product = "nauvi-tea",
         allowed_module_categories = { "efficiency", "quality" },
         allow_decomposition = false,
         auto_recycle = false,
         always_show_made_in = false,
-        result_is_always_fresh = true,
         crafting_machine_tint = { r = 0.8, g = 1, b = 0.6, a = 1 }, -- greenish golden glow tint
         subgroup = "tea-processing",
         order = "t[tea]-h[brewing]"
@@ -278,8 +259,7 @@ data:extend({
             { icon = "__core__/graphics/icons/mip/item-request-slot.png", icon_size = 64, scale = 0.25, shift = { 8, -8 } }
         },
         localised_name = { "recipe-name.synthetize-tea-plant-seed" },
-        category = "advanced-crafting",
-        additional_categories = { "organic" },
+        categories = { "advanced-crafting", "organic" },
         enabled = false,
         energy_required = 20,
         ingredients = {
